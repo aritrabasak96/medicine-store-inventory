@@ -1,0 +1,62 @@
+.add-product{
+  width: 100%;
+  height: 100vh;
+  background-color: #e0e0e0;
+  position: relative;
+}
+
+
+.add-product-wrapper{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: white;
+  padding: 10px;
+  width: 60%;
+  height: 90%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.add-product-wrapper .cancel{
+
+  position: absolute;
+  right: 10px;
+  top:5px;
+  margin-bottom: 20px;
+  cursor: pointer;
+
+}
+
+.add-product-wrapper label{
+  font-size: 16px;
+  font-family: "Noto Sans",sans-serif;
+  display: block;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  opacity: 0.8 !important;
+  color: black;
+}
+
+.add-product-wrapper input{
+
+  border:  1px solid #e0e0e0 !important;
+  padding: 5px !important;
+  border-radius: 20px !important;
+  margin: 20px 0px !important;
+  width: 90% !important;
+}
+
+.add-product-wrapper button{
+
+   display: block;
+   margin: 0px auto;
+}
+
+.add-product-wrapper .projectedPrice{
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  box-shadow: 0px 0px 5px #e0e0e0;
+}

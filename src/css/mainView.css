@@ -1,0 +1,22 @@
+
+
+.mainView{
+  background-color: #e0e0e0;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.mainView .mainView-child{
+  background-color: white;
+  height: 100%;
+  border: 10px solid #e0e0e0;
+}
+
+.mainView .c1{
+  height: 70% !important;
+  border-radius: 20px;
+}

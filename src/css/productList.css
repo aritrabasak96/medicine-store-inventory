@@ -1,0 +1,117 @@
+.product-list-div{
+  height: 100%;
+  padding: 5px;
+  overflow-y: scroll !important;
+  overflow-x: hidden;
+}
+
+.product-list-search{
+
+   margin-bottom: 20px;
+   border-bottom: 1px solid #e0e0e0;
+}
+
+.product-list-search input{
+  display: inline-block !important;
+  width: 70% !important;
+  margin-left: 30px;
+  border: 1px solid #e0e0e0 !important;
+  border-radius: 30px !important;
+  padding: 5px !important;
+  margin-right: 30px !important;
+}
+
+/* ............................................... */
+
+.product-list-item{
+  box-shadow: 0px 0px 10px #e0e0e0;
+  padding: 5px;
+  position: relative;
+  margin-bottom: 12px;
+  padding-bottom: 20px;
+}
+
+.product-list-item .vd{
+
+  position: relative;
+  bottom:0;
+  left: 70%;
+  font-weight: bolder;
+  color: #00a6ff;
+  cursor: pointer;
+
+}
+
+.product-list-item .details{
+
+  margin: 15px 5px;
+
+}
+
+.product-list-item .details .icons{
+
+  float: left;
+  color: #00a6ff;
+
+}
+
+.product-list-item .money{
+
+   margin: 20px 0px;
+
+}
+
+.product-list-item .money .m0{
+
+  display: inline-block;
+  margin: 5px;
+  padding: 5px;
+  box-shadow: 0px 0px 5px #e0e0e0;
+
+}
+
+.product-list-item .money span{
+
+  font-weight: bolder;
+  display: inline-block !important;
+
+}
+
+.product-list-item .stock label{
+
+  display: block;
+
+}
+
+.product-list-item .stock span{
+
+  font-weight: bolder;
+  display: inline-block !important;
+
+}
+
+
+.product-list-item .add_delete{
+
+   margin: 20px 0px;
+   position: relative;
+   left: 60%;
+}
+
+.product-list-item .add_delete label{
+
+   cursor: pointer;
+   margin: 0px 8px;
+}
+
+
+
+.product-list-item h5{
+  margin: 5px 10px !important
+}
+
+.product-list-item label{
+  font-size: 16px;
+  color: black;
+  opacity: 0.8;
+}
