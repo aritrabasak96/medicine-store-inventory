@@ -10,41 +10,51 @@ function Landing(){
   const [view,editView] = React.useState(-1);
   // check login credentials
   useEffect(()=>{
+        
+        checkWindow();
 
-       // first check the mobiel view or not
-       let view = window.innerWidth;
+        window.addEventListener("resize",()=>{
 
-       // desktop
-       if(view > 800){
+          checkWindow();
+        })
+      
 
-         let login = window.localStorage.getItem('ulogin');  // ulogin = 0 => nologin, 1=> login
+  },[])
 
-         // first time
+  const checkWindow = ()=>{
+     // first check the mobiel view or not
+     let view = window.innerWidth;
+
+     // desktop
+     if(view > 800){
+
+       let login = window.localStorage.getItem('ulogin');  // ulogin = 0 => nologin, 1=> login
+
+       // first time
+       // no login
+       if(login === null){
+         editLogin(0)
+       }
+       else{
          // no login
-         if(login === null){
+         if(parseInt(login) !== 1){
            editLogin(0)
          }
          else{
-           // no login
-           if(parseInt(login) !== 1){
-             editLogin(0)
-           }
-           else{
-             // login
-             editLogin(1)
-           }
+           // login
+           editLogin(1)
          }
-
-          editView(1);
-
-       }
-       // mobile view
-       else{
-         editView(0)
        }
 
+        editView(1);
 
-  },[])
+     }
+     // mobile view
+     else{
+       editView(0)
+     }
+
+  }
 
 
   const verifyPassword = (val)=>{

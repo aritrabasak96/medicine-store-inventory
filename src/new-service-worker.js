@@ -2,7 +2,7 @@
 // life cycle of service worker
 // change
 
-const cacheName = "static-cache-v1";
+const cacheName = "static-cache-v2";
 
 const cacheContent = [
 
