@@ -22,30 +22,36 @@ function ProductList(props){
 
   const findSearchData = async()=>{
 
-     let indx = new IndexedDb();
+     if(searchData !== ''){
+        
+      let indx = new IndexedDb();
 
-     // get all data from indexedDB
-    let alldata = await indx.getAllData();
+      // get all data from indexedDB
+     let alldata = await indx.getAllData();
+ 
+     // split the search data
+     let find_split_data = searchData.substring(0,3);
+ 
+      let result = [];
+     // loop through it
+     alldata.map(val=>{
+ 
+        // split the title
+        let split_title = val.title.substring(0,3);
+ 
+        if(split_title === find_split_data){
+ 
+          result.push(val)
+        }
+ 
+ 
+     })
+ 
+     editProductList(result)
 
-    // split the search data
-    let find_split_data = searchData.substring(0,3);
+     }
 
-     let result = [];
-    // loop through it
-    alldata.map(val=>{
-
-       // split the title
-       let split_title = val.title.substring(0,3);
-
-       if(split_title === find_split_data){
-
-         result.push(val)
-       }
-
-
-    })
-
-    editProductList(result)
+   
 
 
   }

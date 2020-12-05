@@ -2,7 +2,7 @@
 // life cycle of service worker
 // change
 
-const cacheName = "static-cache-v2";
+const cacheName = "static-cache-v4";
 
 const cacheContent = [
 
@@ -11,6 +11,8 @@ const cacheContent = [
   "https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
   "./index.html",
   "https://fonts.googleapis.com/icon?family=Material+Icons",
+  "https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif&display=swap",
+  "https://fonts.googleapis.com/css?family=Roboto&display=swap",
   "https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2",
   "../static/css/2.83342f34.chunk.css",
   "../static/css/2.83342f34.chunk.css.map",

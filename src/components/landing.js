@@ -13,8 +13,11 @@ function Landing(){
         
         checkWindow();
 
-        window.addEventListener("resize",()=>{
+        console.log("resize---1")
 
+        window.addEventListener("resize",()=>{
+          
+          console.log("resize--2")
           checkWindow();
         })
       

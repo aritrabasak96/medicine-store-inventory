@@ -18,7 +18,7 @@
   border: 1px solid #e0e0e0 !important;
   border-radius: 30px !important;
   padding: 5px !important;
-  margin-right: 30px !important;
+  margin-right: 5% !important;
 }
 
 /* ............................................... */
@@ -35,7 +35,7 @@
 
   position: relative;
   bottom:0;
-  left: 70%;
+  left: 60%;
   font-weight: bolder;
   color: #00a6ff;
   cursor: pointer;

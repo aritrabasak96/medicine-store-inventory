@@ -13,11 +13,11 @@
 .product-cart-print div{
 
    display: inline-block;
-   width: 40%;
+   width: 60%;
    text-align: center;
    margin-top: 20px;
    position: relative;
-   left: 50%;
+   left: 0%;
 
 }
 
