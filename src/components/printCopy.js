@@ -33,7 +33,7 @@ function PrintCopy(props){
         {/* ..... header ..... */}
         <div className="row header-print">
           <div className="col s2">
-            <img src={logo}></img>
+            <img src={data.image}></img>
           </div>
 
           <div className="col s10">

@@ -48,6 +48,7 @@
    height: 90px;
    border-radius: 50%;
    margin-top: 40px;
+   object-fit: cover;
 }
 
 .printCopy-wrapper .header-print label,span{

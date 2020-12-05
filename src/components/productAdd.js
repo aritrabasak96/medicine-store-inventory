@@ -14,7 +14,7 @@ function ProductAdd(props){
   return(
     <div className="product-add">
       <div className="product-add-wrapper">
-        <img src={logo} alt="logo"></img>
+        <img src={data.image} alt="logo"></img>
         <label>{data.name}</label>
         <button onClick={addProduct} className="btn">Add Product</button>
       </div>

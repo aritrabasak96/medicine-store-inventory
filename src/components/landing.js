@@ -1,7 +1,8 @@
 import React,{useEffect} from 'react';
 import Password from './password';
 import MainView from './mainView.js';
-import '../css/landing.css'
+import '../css/landing.css';
+import Settings from './settings.js';
 
 function Landing(){
 
@@ -10,17 +11,17 @@ function Landing(){
   const [view,editView] = React.useState(-1);
   // check login credentials
   useEffect(()=>{
-        
+
         checkWindow();
 
-        console.log("resize---1")
+
 
         window.addEventListener("resize",()=>{
-          
-          console.log("resize--2")
+
+
           checkWindow();
         })
-      
+
 
   },[])
 
@@ -29,7 +30,7 @@ function Landing(){
      let view = window.innerWidth;
 
      // desktop
-     if(view > 800){
+     if(view > 900){
 
        let login = window.localStorage.getItem('ulogin');  // ulogin = 0 => nologin, 1=> login
 
@@ -45,7 +46,7 @@ function Landing(){
          }
          else{
            // login
-           editLogin(1)
+           editLogin(2)
          }
        }
 
@@ -74,6 +75,15 @@ function Landing(){
     window.location.reload();
   }
 
+  const saveStoreInfo = (val)=>{
+
+    editLogin(2);
+  }
+
+  const setting = ()=>{
+    editLogin(1);
+  }
+
   return(
     <div>
 
@@ -81,14 +91,15 @@ function Landing(){
 
         <div className="header">
           <div>
-            <label>@Avik IT Solution</label>
+            <label>@TreazerDigitise</label>
+            <label onClick={setting}>Setting</label>
             <label onClick={logout}>Logout</label>
           </div>
 
         </div>
 
 
-        {login === 1 && <div style={{width:'80%',margin:'0px auto'}}>
+        {login === 2 && <div style={{width:'80%',margin:'0px auto'}}>
 
             <MainView/>
 
@@ -97,6 +108,12 @@ function Landing(){
         {login === 0 && <div>
            <Password verify={verifyPassword}/>
         </div>}
+
+        {login === 1 && <div>
+           <Settings save={saveStoreInfo}/>
+        </div>}
+
+
 
 
         </div>
