@@ -6,6 +6,19 @@
   position: relative;
 }
 
+.header .refresh{
+
+  position: absolute;
+  left: 100px;
+  margin-top: 15px;
+}
+
+.header .refresh label{
+
+  color: white;
+  cursor: pointer;
+}
+
 .header div{
   position: absolute;
   right: 100px;

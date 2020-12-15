@@ -24,6 +24,7 @@ function IndexedDb(){
   // data should be an object with an id
   this.addData = async(data)=>{
 
+
     return new Promise((resolve,reject)=>{
 
        request.onerror = (e)=>{
@@ -44,6 +45,7 @@ function IndexedDb(){
 
             tx = db.transaction(storeName,"readwrite");
             store = tx.objectStore(storeName);
+
 
 
 
@@ -102,9 +104,49 @@ function IndexedDb(){
               db.close()
             }
 
+        }
+    })
+  }
+
+  this.getSpecificData = async(id)=>{
+
+    return new Promise((resolve,reject)=>{
+
+        request.onerror = (e)=>{
+
+          reject('error')
+        }
+
+        request.onsuccess = (e)=>{
 
 
+          db =  request.result;
 
+          db.onerror = (e)=>{
+
+            db.close()
+            reject("error")
+          }
+
+            tx =  db.transaction(storeName,"readwrite");
+
+            store = tx.objectStore(storeName);
+
+            // get all data
+            let query = store.get(id)
+
+            query.onsuccess = (e)=>{
+              resolve(query.result)
+            }
+
+            query.onerror = ()=>{
+              reject('error')
+            }
+
+
+            tx.oncomplete = ()=>{
+              db.close()
+            }
 
         }
     })

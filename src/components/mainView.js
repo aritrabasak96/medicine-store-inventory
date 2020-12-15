@@ -82,7 +82,7 @@ function MainView(){
   // do not re-render ProductList while you are adding data to cart
   const addCartList = React.useCallback((item)=>{
 
-
+         
         editCart(val=>{
           return [...val,item]
         })

@@ -4,6 +4,7 @@ import {data} from './storeInfo.js';
 import logo from '../images/storelogo.png';
 import uniqueString from 'unique-string';
 import ReactToPdf from 'react-to-pdf';
+import IndexedDb from './indexedDb.js';
 
 function PrintCopy(props){
 
@@ -11,6 +12,26 @@ function PrintCopy(props){
 
   const billCancel = ()=>{
     props.cancel()
+  }
+
+  const downloadPDF = ()=>{
+
+
+
+    props.cartList.map(async(val)=>{
+       // update the stock
+
+        let ind = new IndexedDb();
+        let data = await ind.getSpecificData(val.id);
+
+        let new_stock = (parseInt(data.stock) - parseInt(val.quantity));
+
+        let new_data = {id:data.id,title:data.title,description:data.description,mrp:data.mrp,buyingPrice:data.buyingPrice,sellingPrice:data.sellingPrice,gst:data.gst,stockLocation:data.stockLocation,rackNo:data.rackNo,stock:new_stock.toString()};
+
+        let ind2 = new IndexedDb();
+        let v = await ind2.addData(new_data);
+
+    })
   }
 
 
@@ -22,9 +43,14 @@ function PrintCopy(props){
 
         <ReactToPdf targetRef={divRef} filename="invoice.pdf" x={0.5} y={0.5} scale={0.8}>
           {({toPdf}) => (
-              <label onClick={toPdf}><i className="material-icons">download</i></label>
+              <div onClick={downloadPDF}>
+                  <label onClick={toPdf}><i className="material-icons">download</i></label>
+              </div>
+
           )}
        </ReactToPdf>
+
+
 
         <label onClick={billCancel}><i className="material-icons">cancel</i></label>
       </div>

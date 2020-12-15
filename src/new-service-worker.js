@@ -2,13 +2,13 @@
 // life cycle of service worker
 // change
 
-const cacheName = "static-cache-v5";
+const cacheName = "static-cache-v6";
 
 const cacheContent = [
 
   "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css",
-  "https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
+  "https://fonts.gstatic.com/s/materialicons/v67/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2",
   "./index.html",
   "https://fonts.googleapis.com/icon?family=Material+Icons",
   "https://fonts.googleapis.com/css?family=Noto+Sans|Noto+Serif&display=swap",

@@ -8,11 +8,11 @@ function ProductListEdit(props){
   title:props.data.data.title,description:props.data.data.description,
   buyingPrice:props.data.data.buyingPrice,sellingPrice:props.data.data.sellingPrice,
   gst:props.data.data.gst,stock:props.data.data.stock,stockLocation:props.data.data.stockLocation,
-  rackNo:props.data.data.rackNo})
+  rackNo:props.data.data.rackNo,mrp:props.data.data.mrp})
 
   const saveUpdate = async()=>{
 
-    console.log('editdata----',editData)
+
     const indx = new IndexedDb();
     await indx.addData(editData);
     // when you save the data cancel the view

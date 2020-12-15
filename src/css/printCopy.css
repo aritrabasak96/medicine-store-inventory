@@ -18,6 +18,11 @@
    top:10px;
 }
 
+.printCopy .dc-icons div{
+
+   display: inline-block;
+}
+
 .printCopy .dc-icons label{
 
    color: black;

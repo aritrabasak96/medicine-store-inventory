@@ -84,12 +84,21 @@ function Landing(){
     editLogin(1);
   }
 
+  const refreshBrowser = ()=>{
+    window.location.reload();
+  }
+
   return(
     <div>
 
       {view === 1 && <div>
 
         <div className="header">
+
+         <div className="refresh">
+           <label onClick={refreshBrowser}><i className="material-icons">refresh</i></label>
+         </div>
+
           <div>
             <label>@TreazerDigitise</label>
             <label onClick={setting}>Setting</label>

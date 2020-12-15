@@ -20,43 +20,61 @@ function ProductList(props){
 
   },[])
 
-  const findSearchData = async()=>{
+  const searchInput = (e)=>{
 
-     if(searchData !== ''){
-        
-      let indx = new IndexedDb();
-
-      // get all data from indexedDB
-     let alldata = await indx.getAllData();
- 
-     // split the search data
-     let find_split_data = searchData.substring(0,3);
- 
-      let result = [];
-     // loop through it
-     alldata.map(val=>{
- 
-        // split the title
-        let split_title = val.title.substring(0,3);
- 
-        if(split_title === find_split_data){
- 
-          result.push(val)
-        }
- 
- 
-     })
- 
-     editProductList(result)
-
-     }
-
-   
+     editSearchData(e.target.value);
+     findDataFromDB(e.target.value);
 
 
   }
 
+  const findSearchData = async()=>{
+
+    findDataFromDB(searchData);
+
+  }
+
+  // find data from database
+  const findDataFromDB = async(sd)=>{
+
+    if(sd !== ''){
+
+     let indx = new IndexedDb();
+
+     // get all data from indexedDB
+    let alldata = await indx.getAllData();
+
+    // split the search data
+    let find_split_data = searchData.substring(0,3);
+
+     let result = [];
+    // loop through it
+    alldata.map(val=>{
+
+       // split the title
+       let split_title = val.title.substring(0,3);
+
+       if(split_title === find_split_data){
+
+         result.push(val)
+       }
+
+
+    })
+
+
+    editProductList(result)
+
+    }
+    // users want all data
+    else{
+      editProductList(props.addProductList)
+    }
+
+  }
+
   const addCart = (item)=>{
+    
     props.addCartList(item)
   }
 
@@ -68,7 +86,7 @@ function ProductList(props){
 
       {/* ....... search ...... */}
       <div className="product-list-search">
-        <input onChange={(e) => editSearchData(e.target.value)} type="text" placeholder="search by title"></input>
+        <input onChange={searchInput} type="text" placeholder="search by title"></input>
         <button onClick={findSearchData} className="btn-floating waves-effect waves-light"><i className="material-icons">search</i></button>
       </div>
 
