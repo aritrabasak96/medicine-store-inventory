@@ -15,9 +15,16 @@ function Password(props){
 
   const verifyPassword = ()=>{
 
-    axios.post("https://florentine-mint-wedge.glitch.me/api/auth",{data:password})
+    editMessage('Please wait...');
+
+    let data = {
+
+      pwd:password
+    }
+
+    axios.post("https://florentine-mint-wedge.glitch.me/api/auth/",data)
     .then(response=>{
-            
+          
          if(response.data.msg === 'notused'){
 
             props.verify("y")
