@@ -26,7 +26,7 @@ function Password(props){
             editMessage('Wrong Password')
          }   
     })
-    .error(err=>{
+    .catch(err=>{
        editMessage('check your internet connection')
     })
     
