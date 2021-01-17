@@ -8,6 +8,7 @@ import IndexedDb from './indexedDb.js';
 
 function ProductListItem(props){
 
+  const [addItem,editAddItem] = React.useState(1);
   const [updateView,editUpdateView] = React.useState(0);
   const [deleteViewItem,editDeleteViewItem] = React.useState(0);
   const [viewDetails,editViewDetails] = React.useState(0);
@@ -37,8 +38,27 @@ function ProductListItem(props){
     }
   }
 
+  const addItemInp = (v)=>{
+
+    if(v.target.value !== ''){
+
+      let val = parseInt(v.target.value);
+      editAddItem(val);
+    }
+    else{
+      editAddItem(1);
+    }
+
+  }
+
   const addCart = ()=>{
-    props.addCart(props.data)
+
+
+    //props.data.stock = String(addItem);
+    let {buyingPrice,description,gst,id,mrp,rackNo,sellingPrice,stock,stockLocation,title} = props.data;
+    stock = String(addItem);
+    let obj = {buyingPrice,description,gst,id,mrp,rackNo,sellingPrice,stock,stockLocation,title}
+    props.addCart(obj);
 
   }
 
@@ -83,7 +103,9 @@ function ProductListItem(props){
            </div>
            {/* .... delete, add button ... */}
            <div className="add_delete">
-             <label onClick={addCart}><i className="material-icons">add_shopping_cart</i></label>
+             <input onChange={addItemInp} type="number" placeholder="Add Many items">
+             </input>
+              <label onClick={addCart}><i className="material-icons">add_shopping_cart</i></label>
              <label onClick={()=> editUpdateView(1) }><i className="material-icons">create</i></label>
              <label onClick={()=> editDeleteViewItem(1) }><i className="material-icons">delete</i></label>
            </div>

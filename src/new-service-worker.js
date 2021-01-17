@@ -25,8 +25,8 @@ const cacheContent = [
   "../static/js/main.b7492e71.chunk.js.map",
   "../static/js/runtime-main.bb0f5578.js",
   "../static/js/runtime-main.bb0f5578.js.map",
-]
 
+]
 
 self.addEventListener('install',evnt=>{
 
@@ -36,7 +36,7 @@ self.addEventListener('install',evnt=>{
 
     caches.open(cacheName).then(cache=>{
       return cache.addAll(cacheContent);
-    })
+    });
 
   );
 

@@ -98,6 +98,16 @@
    left: 60%;
 }
 
+.product-list-item .add_delete input{
+
+   display: block;
+   border: 2px solid #e0e0e0 !important;
+   border-radius: 20px !important;
+   width: 30% !important;
+   margin-bottom: 20px;
+
+}
+
 .product-list-item .add_delete label{
 
    cursor: pointer;

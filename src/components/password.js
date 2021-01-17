@@ -5,7 +5,7 @@ import axios from 'axios';
 function Password(props){
 
   const [password,editPassword] = React.useState('');
-  const [message,editMessage] = React.useState('Enter The Password');
+  const [message,editMessage] = React.useState('Enter The Password: 1234');
 
   //let gimicPass = '123789';
 
@@ -17,26 +17,9 @@ function Password(props){
 
     editMessage('Please wait...');
 
-    let data = {
-
-      pwd:password
+    if(password === '1234'){
+      props.verify('y')
     }
-
-    axios.post("https://florentine-mint-wedge.glitch.me/api/auth/",data)
-    .then(response=>{
-          
-         if(response.data.msg === 'notused'){
-
-            props.verify("y")
-         }
-         else{
-            editMessage('Wrong Password')
-         }   
-    })
-    .catch(err=>{
-       editMessage('check your internet connection')
-    })
-    
   }
 
   return(

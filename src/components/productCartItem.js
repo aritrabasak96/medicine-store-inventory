@@ -7,7 +7,7 @@ function ProductCartItem(props){
 
   React.useEffect(()=>{
 
-     
+
       let price_ =  ( parseInt(props.data.sellingPrice) * ( (parseInt(props.data.gst) / 100) ) );
       price_ = parseInt(props.data.sellingPrice) + price_;
 
@@ -18,8 +18,15 @@ function ProductCartItem(props){
 
   },[])
 
+  const dltItem = ()=>{
+    
+    props.dltItem(props.data.id)
+  }
+
   return(
     <div className="productCart-list">
+
+      <label onClick={dltItem} className="dlt"><i className="material-icons">delete</i></label>
       <div>
         {/* ... title... */}
         <label>Product Name: <span>{props.data.title}</span></label>

@@ -65,6 +65,11 @@
   margin-bottom: 10px;
 }
 
+.productCart-list .dlt{
+
+  cursor: pointer;
+}
+
 .productCart-list label{
 
    display: block;

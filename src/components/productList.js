@@ -11,6 +11,7 @@ function ProductList(props){
 
   const [searchData,editSearchData] = React.useState('');
 
+  const [cacheDb,editCacheDb] = React.useState([]);
 
 
   React.useEffect(()=>{
@@ -24,7 +25,6 @@ function ProductList(props){
 
      editSearchData(e.target.value);
      findDataFromDB(e.target.value);
-
 
   }
 
@@ -41,18 +41,36 @@ function ProductList(props){
 
      let indx = new IndexedDb();
 
-     // get all data from indexedDB
-    let alldata = await indx.getAllData();
+     // cache the data
+
+     if(cacheDb.length === 0){
+       // data not present
+         let alldata = await indx.getAllData();
+         editCacheDb(alldata);
+
+     }
+     else{
+       console.log("from cache");
+     }
+
+
+    // get all data from indexedDB
+
 
     // split the search data
-    let find_split_data = searchData.substring(0,3);
+    let find_split_data = sd.substring(0,sd.length + 1);
 
-     let result = [];
+
+    let result = [];
+
+
     // loop through it
-    alldata.map(val=>{
+    cacheDb.map(val=>{
 
        // split the title
-       let split_title = val.title.substring(0,3);
+       let split_title = val.title.substring(0,sd.length);
+
+
 
        if(split_title === find_split_data){
 
@@ -74,7 +92,7 @@ function ProductList(props){
   }
 
   const addCart = (item)=>{
-    
+
     props.addCartList(item)
   }
 

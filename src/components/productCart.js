@@ -14,6 +14,7 @@ function ProductCart(props) {
 
   const addToCart = async()=>{
 
+
     return new Promise((resolve,reject)=>{
 
       let new_array = []
@@ -28,11 +29,15 @@ function ProductCart(props) {
         // not in the actual list
         if (ind === -1) {
 
-          let count = 1
+          // user can add custom addItem
+           //let count = 1
+          let count = parseInt(props.cart[i].stock);
 
           for (let j = i + 1; j < props.cart.length; j++) {
-            if (val === props.cart[j]) {
-              count = count + 1;
+
+            // if the two products are same
+            if (val.id === props.cart[j].id) {
+              count = count + parseInt(props.cart[j].stock);
             }
           }
           let {id,title,sellingPrice,gst,mrp} = props.cart[i];
@@ -118,6 +123,17 @@ function ProductCart(props) {
   },[props])
 
 
+  const dltItem = (id)=>{
+
+
+    let new_cart_item = cartList.filter(val=>{
+      return val.id !== id
+    })
+
+    editCartList(new_cart_item);
+  }
+
+
 
   return (<div className="product-cart-div">
 
@@ -132,7 +148,7 @@ function ProductCart(props) {
       {cartList.map(val=>{
         return(
           <div key={uniqueString()}>
-            <ProductCartItem data={val}/>
+            <ProductCartItem dltItem={dltItem} data={val}/>
           </div>
         )
       })}
